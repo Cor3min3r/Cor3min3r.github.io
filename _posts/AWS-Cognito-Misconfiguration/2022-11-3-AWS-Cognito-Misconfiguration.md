@@ -14,8 +14,8 @@ For those who doesn't know about AWS Cognito.
 Amazon Cognito provides authentication, authorization, and user management for customer's web and mobile applications. Users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, Google, Apple, or enterprise identity providers via SAML 2.0 and OpenID Connect. The two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in options for application users. Identity pools enable developers to grant users access to other AWS services
 
 **References:**
-* [a](https://aws.amazon.com/cognito/)
-* [a](https://www.techtarget.com/searchaws/definition/Amazon-Cognito)
+* (https://aws.amazon.com/cognito/)
+* (https://www.techtarget.com/searchaws/definition/Amazon-Cognito)
 
 <p align="center">
 <img src="https://docs.aws.amazon.com/images/cognito/latest/developerguide/images/cognito-user-pool-auth-flow-srp.png">
@@ -77,7 +77,9 @@ The above response gives us the list of `user attributes` available. Among those
 aws cognito-idp update-user-attributes --region us-west-2 --access-token <Token> --user-attributes 'Name=email,Value=**victim@victim.com**'
 ```
 
-Run the above command to update the email address to victim's email address. After running the command the update operation was successfull. Upon making a request to `GET user attribute` with the below given aws command the response was as follows.
+Run the above command to update the email address to victim's email address. After running the command the update operation was successfull. If you get an error like this `An error occured (AliasExistsException) when calling the UpdateUserAttributes operation: An account with the given email address already exists` it means the application was not vulnerable. 
+ 
+Upon making a request to retrieve the updated `user attributes` using aws-cli with the below given command the response was as follows.
 
 **AWS CLI**
 ```
@@ -112,7 +114,7 @@ Email: victim@victim.com
 Password: attacker'spassword
 ```
 
-The login was failed. From the above given response i noticed the `username` still remains the same only the email attribute has been changed. So I tried to login to the application with the attacker's credentials such as
+The login was failed. From the above given response i noticed the `username` still remains the same as `attacker@attacker.com` only the email attribute has been changed. So I tried to login to the application with the attacker's credentials such as
 
 ```
 Email: attacker@attacker.com
