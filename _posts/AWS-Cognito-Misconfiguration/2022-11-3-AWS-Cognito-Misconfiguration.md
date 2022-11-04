@@ -79,7 +79,7 @@ The above response gives us the list of `user attributes` available. Among those
 aws cognito-idp update-user-attributes --region us-west-2 --access-token <Token> --user-attributes 'Name=email,Value=**victim@victim.com**'
 ```
 
-Run the above command to update the email address to victim's email address. After running the command the update operation was successfull. If you get an error like this `An error occured (AliasExistsException) when calling the UpdateUserAttributes operation: An account with the given email address already exists` it means the application was not vulnerable. 
+Run the above command to update the email address to victim's email address. After running the command the update operation was successfull. If you get an error like this `An error occured (AliasExistsException) when calling the ` `UpdateUserAttributes operation: An account with the given email address already exists` it means the application was not vulnerable. 
  
 Upon making a request to retrieve the updated `user attributes` using aws-cli with the below given command the response was as follows.
 
