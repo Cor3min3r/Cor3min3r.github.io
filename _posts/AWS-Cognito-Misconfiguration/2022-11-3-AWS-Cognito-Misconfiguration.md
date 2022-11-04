@@ -129,7 +129,7 @@ Sec-Fetch-Mode: cors
 Sec-Fetch-Site: cross-site
 
 {
-   "AccessToken": "string",  
+   "AccessToken": "<Token>",  
    "UserAttributes": [
         {   
             "Name": "sub",
