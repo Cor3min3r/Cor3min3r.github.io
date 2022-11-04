@@ -120,7 +120,7 @@ Accept: */*
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate
 Content-Type: application/x-amz-json-1.1
-X-Amz-Target: AWSCognitoIdentityProviderService.GetUser
+X-Amz-Target: AWSCognitoIdentityProviderService.UpdateUserAttributes
 X-Amz-User-Agent: aws-amplify/5.0.4 js
 Content-Length: 1072
 Origin: https://<REDACTED>
