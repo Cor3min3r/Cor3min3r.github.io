@@ -17,7 +17,16 @@ Amazon Cognito provides authentication, authorization, and user management for c
 - https://aws.amazon.com/cognito/
 - https://www.techtarget.com/searchaws/definition/Amazon-Cognito
 
-<img src=https://docs.aws.amazon.com/images/cognito/latest/developerguide/images/cognito-user-pool-auth-flow-srp.png>
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+
+<img src="https://docs.aws.amazon.com/images/cognito/latest/developerguide/images/cognito-user-pool-auth-flow-srp.png" class="center">
 
 The Target application was using AWS Cognito for authentication purpose. Upon Login to the application certain requests were being made to AWS Cognito to validate the user. Once the validation check was passed you will be allowed to login to the application
 
@@ -26,6 +35,7 @@ The flow will be as follows
 User login -> AWS Cognito (Authentication) -> AWS Cognito (Get User Attributes) -> Application Login
 
 The request for `Get User Attribute` will have a header named `X-Amz-Target: AWSCognitoIdentityProviderService.GetUser` and the response for the request will be as follows
+
 **Request:**
 ```
 POST / HTTP/2
