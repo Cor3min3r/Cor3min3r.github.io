@@ -14,8 +14,8 @@ For those who doesn't know about AWS Cognito.
 Amazon Cognito provides authentication, authorization, and user management for customer's web and mobile applications. Users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, Google, Apple, or enterprise identity providers via SAML 2.0 and OpenID Connect. The two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in options for application users. Identity pools enable developers to grant users access to other AWS services
 
 **References:**
-* https://aws.amazon.com/cognito/
-* https://www.techtarget.com/searchaws/definition/Amazon-Cognito
+* [a](https://aws.amazon.com/cognito/)
+* [a](https://www.techtarget.com/searchaws/definition/Amazon-Cognito)
 
 <p align="center">
 <img src="https://docs.aws.amazon.com/images/cognito/latest/developerguide/images/cognito-user-pool-auth-flow-srp.png">
