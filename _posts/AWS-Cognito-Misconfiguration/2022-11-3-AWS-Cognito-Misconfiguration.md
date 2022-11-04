@@ -14,19 +14,12 @@ For those who doesn't know about AWS Cognito.
 Amazon Cognito provides authentication, authorization, and user management for customer's web and mobile applications. Users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, Google, Apple, or enterprise identity providers via SAML 2.0 and OpenID Connect. The two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in options for application users. Identity pools enable developers to grant users access to other AWS services
 
 **References:**
-- https://aws.amazon.com/cognito/
-- https://www.techtarget.com/searchaws/definition/Amazon-Cognito
+* https://aws.amazon.com/cognito/
+* https://www.techtarget.com/searchaws/definition/Amazon-Cognito
 
-<style>
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-</style>
-
-<img src="https://docs.aws.amazon.com/images/cognito/latest/developerguide/images/cognito-user-pool-auth-flow-srp.png" class="center">
+<p align="center">
+<img src="https://docs.aws.amazon.com/images/cognito/latest/developerguide/images/cognito-user-pool-auth-flow-srp.png">
+</p>
 
 The Target application was using AWS Cognito for authentication purpose. Upon Login to the application certain requests were being made to AWS Cognito to validate the user. Once the validation check was passed you will be allowed to login to the application
 
